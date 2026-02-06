@@ -14,7 +14,7 @@ pred_wrapper <- function(model, newdata) {
   predict(model, data = newdata)$predictions
 }
 set.seed(123)
-# 🔮 Calculate SHAP values
+# Calculate SHAP values
 shap_values <- fastshap::explain(
   final_rf,
   X = test_sample[,-1],  # Remove target variable
@@ -112,4 +112,5 @@ ggsave(
   width = 30,   # Keep overall width at 18 cm
   height = 30,  # Adjust height to maintain proportions and avoid being too large
   units = "cm"
+
 )
